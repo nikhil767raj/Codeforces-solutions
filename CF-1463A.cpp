@@ -10,4 +10,5 @@ int main(){
       if(sum%9 == 0 && sum/9<=mn) cout << "YES" << endl;
       else cout << "NO" << endl;
    }
+   return 0;
 }
