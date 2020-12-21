@@ -1,28 +1,30 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+int main() {
+   int t; cin >> t;
+   while (t--) {
+      int ar[3];
+      int sum = 0;
+      for (int i = 0; i < 3; i++) cin >> ar[i];
+      sort(ar, ar + 3, greater<int>());
+      if (ar[0] >= (ar[1] + ar[2])) cout << ar[1] + ar[2] << endl;
+      else {
+         int y = ar[0] - ar[1];
+         sum = sum + y;
+         ar[2] = ar[2] - y;
+         ar[0] = ar[1];
+         // if(ar[2]%2 == 0){
+         sum = sum + ar[2] + (ar[0] - ceil((double)ar[2] / 2));
+         cout << sum << endl;
+         // }
+         // else{
 
-int main () {
-	int t; cin >> t;
-	while (t--) {
-		long long r, g, b; cin >> r >> g >> b;
-		vector<long long> a = {r, g, b};
-		sort(a.begin(), a.end());
-		// long long mn = min({r,g,b});
-		// r-=mn, g-=mn, b-=mn;
 
-		// if(r==mn){
-		// 	cout << mn + min(g,b) << endl;
-		// 	continue;
-		// }
-		// if(g==mn){
-		// 	cout << mn + min(r,b) << endl;
-		// 	continue;
-		// }
-		// if(b==mn){
-		// 	cout << mn + min(g,r) << endl;
-		// 	continue;
-		// }
-		cout << a[0] + min(a[1], a[2] - a[0]) << endl;;
-	}
-	return 0;
+         // }
+
+
+
+      }
+
+   }
 }
