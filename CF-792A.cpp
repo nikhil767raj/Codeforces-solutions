@@ -23,13 +23,18 @@ void nikhil() {
 }
 
 int main() {
-	nikhil();
-	int t; cin >> t;
-	while (t--) {
-		int x; cin >> x;
-		cout << x << endl;
-
+	ll n, z, mn = 0; cin >> n;
+	ll ar[n];
+	map<ll, ll>mp;
+	for (ll i = 0; i < n; i++) cin >> ar[i];
+	sort(ar, ar + (n));
+	for (int i = 1; i < n; i++) {
+		z = abs(ar[i] - ar[i - 1]);
+		mp[z]++;
 	}
-
+	for (auto i : mp) {
+		cout << i.first << " " << i.second << endl;
+		break;
+	}
 	return 0;
 }

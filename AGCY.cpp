@@ -26,8 +26,12 @@ int main() {
 	nikhil();
 	int t; cin >> t;
 	while (t--) {
-		int x; cin >> x;
-		cout << x << endl;
+		ll n,q; cin >> n >> q;
+		while(q--){
+			ll x,y; cin >> x >> y;
+			
+		}
+
 
 	}
 
