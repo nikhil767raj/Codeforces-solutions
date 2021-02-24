@@ -1,19 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-	int n; cin >> n;
-	int ar[n];
-	for(int i=0;i<n;i++) cin >> ar[i];
-		sort(ar,ar+n);
-	for(int i=0;i<n-1;i++){
-		if(abs(ar[i]-ar[i+1]) == 1)
-			ar[i+1]=ar[i];
-		else{
-			sum=sum+abs(ar[i]-ar[i+1]);
-			ar[i+1]=ar[i];
-		}
-	}
-	cout << ar[0] << endl;
-
+int main() {
+    int n, count = 0, mnn, mn = INT_MAX, t; cin >> n;
+    vector < int > v;
+    for (int i = 0; i < n; i++) {
+        int elem; cin >> elem;
+        v.push_back(elem);
+    }
+    for ( t = 1; t <= 101; t++) {
+        for (int i = 0; i < v.size(); i++) {
+            if (v[i] == t || abs(v[i] - t) == 1) continue;
+            else {
+                count = count + abs(v[i] - t) - 1;
+            }
+        }
+        // cout << count << " " << t << endl;//
+        if (count < mn) {mn = count; mnn = t;}
+        count = 0;
+    }
+    cout << mnn << " " << mn << endl;
 
 }
