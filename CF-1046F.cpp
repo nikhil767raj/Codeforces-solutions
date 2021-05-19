@@ -1,22 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define ll       long long
+#define ll   long long
 int main() {
-   ll n, z, count = 0, sum = 0, rem = 0; cin >> n;
-   ll ar[n];
-   for (ll i = 0; i < n; i++) cin >> ar[i];
-   ll x, f; cin >> x >> f;
+   int n; cin >> n;
+   vector < ll > v;
+   for (int i = 0; i < n; i++) {
+      ll elem; cin >> elem;
+      v.push_back(elem);
+   }
+   ll s, f, z, trans = 0; cin >> s >> f;
+   z = f + s;
    for (ll i = 0; i < n; i++) {
-      if (ar[i] <= x) continue;
-      else {
-         // ar[i]=ar[i]-f;
-         z = ((double)ar[i] / (f + x));
-         rem = ar[i] % (f + x);
-         // cout << rem << "PP" << endl;
-         if (rem > x) z++;
-         if (z == 0) z = 1;
-         sum = sum + z * f;
+      if (v[i] > s) {
+         if (z >= v[i]) {
+            trans += f;
+            continue;
+         }
+         if (v[i] % z > s) trans += (v[i] / z) * f + f;
+         else trans += (v[i] / z) * f;
       }
    }
-   cout << sum << endl;
+   cout << trans << endl;
 }
